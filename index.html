@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>متجر النجوم</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+    }
+    .product {
+      background: white;
+      padding: 20px;
+      margin: 10px auto;
+      border-radius: 10px;
+      max-width: 400px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .product button {
+      background: #0088cc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>🛍️ متجر النجوم</h2>
+
+  <div class="product">
+    <h3>خدمة استشارة</h3>
+    <p>اشترِ استشارة خاصة لمدة 30 دقيقة.</p>
+    <button onclick="buy('consulting_30')">شراء بـ 100 نجمة</button>
+  </div>
+
+  <div class="product">
+    <h3>ملف PDF مميز</h3>
+    <p>احصل على دليل PDF حصري.</p>
+    <button onclick="buy('pdf_guide')">شراء بـ 50 نجمة</button>
+  </div>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.expand();
+
+    function buy(slug) {
+      tg.openInvoice({ slug });
+    }
+  </script>
+</body>
+</html>
